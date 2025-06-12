@@ -62,30 +62,8 @@
                             </li>
                         </ul>
                         <div class="py-2">
-                            <a href="#"
+                            <a href="/"
                                 class="block px-4 py-2 font-poppins text-sm text-gray-700 hover:bg-gray-100">Keluar</a>
-                        </div>
-                    </div>
-
-                    <div id="dropdownUser"
-                        class="z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 absolute right-0 mt-2">
-                        <div class="px-4 py-3 text-sm text-gray-900">
-                            <div>{{ Auth::user()->name }}</div>
-                            <div class="font-medium truncate">{{ Auth::user()->email }}</div>
-                        </div>
-                        <ul class="py-2 text-sm text-gray-700">
-                            <li>
-                                <a href="/dashboard" class="block px-4 py-2 hover:bg-gray-100">Dashboard</a>
-                            </li>
-                        </ul>
-                        <div class="py-2">
-                            <form method="POST" action="/">
-                                @csrf
-                                <button type="submit"
-                                    class="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
-                                    Keluar
-                                </button>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -98,14 +76,14 @@
                 </a>
             @endauth
         </div>
-        </div>
     </nav>
 
     <section class="bg-gradient-to-br from-blue-50 to-white py-20 px-6 lg:px-24">
         <div class="max-w-screen-xl mx-auto px-4">
             <h1 class="text-3xl font-bold text-gray-800 mb-4 text-center font-sora">Butuh Bantuan?</h1>
             <p class="text-gray-600 text-center font-poppins">
-                Kami siap membantu Anda dalam menggunakan <strong>Omahku</strong>. Temukan panduan dan informasi lengkap seputar reservasi kos
+                Kami siap membantu Anda dalam menggunakan <strong>Omahku</strong>. Temukan panduan dan informasi lengkap
+                seputar reservasi kos
             </p>
             <div class="grid grid-cols-1 mt-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <!-- Item 1 -->
@@ -176,34 +154,6 @@
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
-    <script>
-        const dropdownToggle = document.querySelector('.dropdown-toggle');
-        const dropdownMenu = document.querySelector('.dropdown-menu');
-
-        dropdownToggle.addEventListener('click', () => {
-            dropdownMenu.classList.toggle('show');
-        });
-
-        window.addEventListener('click', (e) => {
-            if (!e.target.matches('.dropdown-toggle')) {
-                dropdownMenu.classList.remove('show');
-            }
-        });
-
-        document.querySelectorAll('.accordion-header').forEach(button => {
-            button.addEventListener('click', () => {
-                const content = button.nextElementSibling;
-
-                button.classList.toggle('active');
-
-                if (content.style.display === 'block') {
-                    content.style.display = 'none';
-                } else {
-                    content.style.display = 'block';
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>

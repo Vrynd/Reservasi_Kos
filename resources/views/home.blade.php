@@ -39,14 +39,10 @@
             </a>
 
             <div class="flex md:order-2 items-center md:gap-5 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                <a href="/home"
-                    class="font-sora text-lg font-medium text-gray-500 hover:text-blue-600">Home</a>
-                <a href="/kontak"
-                    class="font-sora text-lg font-medium text-gray-500 hover:text-blue-600">Kontak</a>
-                <a href="/bantuan"
-                    class="font-sora text-lg font-medium text-gray-500 hover:text-blue-600">Bantuan</a>
-                <a href="/tentang"
-                    class="font-sora text-lg font-medium text-gray-500 hover:text-blue-600">Tentang</a>
+                <a href="/home" class="font-sora text-lg font-medium text-gray-500 hover:text-blue-600">Home</a>
+                <a href="/kontak" class="font-sora text-lg font-medium text-gray-500 hover:text-blue-600">Kontak</a>
+                <a href="/bantuan" class="font-sora text-lg font-medium text-gray-500 hover:text-blue-600">Bantuan</a>
+                <a href="/tentang" class="font-sora text-lg font-medium text-gray-500 hover:text-blue-600">Tentang</a>
                 @auth
                     <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation"
                         class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white font-bold hover:bg-blue-700 transition">
@@ -66,30 +62,8 @@
                             </li>
                         </ul>
                         <div class="py-2">
-                            <a href="#"
+                            <a href="/"
                                 class="block px-4 py-2 font-poppins text-sm text-gray-700 hover:bg-gray-100">Keluar</a>
-                        </div>
-                    </div>
-
-                    <div id="dropdownUser"
-                        class="z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 absolute right-0 mt-2">
-                        <div class="px-4 py-3 text-sm text-gray-900">
-                            <div>{{ Auth::user()->name }}</div>
-                            <div class="font-medium truncate">{{ Auth::user()->email }}</div>
-                        </div>
-                        <ul class="py-2 text-sm text-gray-700">
-                            <li>
-                                <a href="/dashboard" class="block px-4 py-2 hover:bg-gray-100">Dashboard</a>
-                            </li>
-                        </ul>
-                        <div class="py-2">
-                            <form method="POST" action="/">
-                                @csrf
-                                <button type="submit"
-                                    class="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
-                                    Keluar
-                                </button>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -101,7 +75,6 @@
                     <i class="ri-arrow-right-line text-base font-sora"></i>
                 </a>
             @endauth
-        </div>
         </div>
     </nav>
 
@@ -135,15 +108,18 @@
                     <div
                         class="relative mx-4 mt-4 overflow-hidden text-white shadow-lg rounded-xl bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
                         <img src="{{ asset('storage/' . $kos->foto) }}" alt="{{ $kos->nama }}" />
-                        <span class="absolute top-4 left-4 bg-blue-100 text-blue-800 text-xs font-medium me-2 px-5 py-2 rounded-full font-sora ">Rp {{ number_format($kos->harga) }}</span>
+                        <span
+                            class="absolute top-4 left-4 bg-blue-100 text-blue-800 text-xs font-medium me-2 px-5 py-2 rounded-full font-sora ">Rp
+                            {{ number_format($kos->harga) }}</span>
                         <div
                             class="absolute inset-0 w-full h-full to-bg-black-10 bg-gradient-to-tr from-transparent via-transparent to-black/60">
                         </div>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center justify-between mb-3">
-                            <h2 class="block font-sora text-xl antialiased font-medium leading-snug tracking-normal text-gray-700">
-                                {{ $kos->nama  }}
+                            <h2
+                                class="block font-sora text-xl antialiased font-medium leading-snug tracking-normal text-gray-700">
+                                {{ $kos->nama }}
                             </h2>
                             <div class="flex md:gap-2 items-center justify-between font-poppins text-lg ">
                                 <i class="ri-map-pin-line text-red-500"></i>
@@ -169,62 +145,6 @@
             @endforelse
         </div>
     </div>
-
-    <script>
-        // Dropdown functionality
-        const dropdownToggle = document.querySelector('.dropdown-toggle');
-        const dropdownMenu = document.querySelector('.dropdown-menu');
-
-        dropdownToggle.addEventListener('click', () => {
-            dropdownMenu.classList.toggle('show');
-        });
-
-        window.addEventListener('click', (e) => {
-            if (!e.target.matches('.dropdown-toggle')) {
-                dropdownMenu.classList.remove('show');
-            }
-        });
-
-        // Pencarian
-        const searchInput = document.getElementById('searchInput');
-        const recommendationGrid = document.getElementById('recommendationGrid');
-        const cards = recommendationGrid.getElementsByClassName('card');
-
-        // Elemen untuk menampilkan pesan "Kos tidak ditemukan"
-        const noResultMessage = document.createElement('p');
-        noResultMessage.textContent = 'Kos tidak ditemukan';
-        noResultMessage.style.textAlign = 'center';
-        noResultMessage.style.fontSize = '1.2rem';
-        noResultMessage.style.color = '#555';
-        noResultMessage.style.display = 'none';
-        recommendationGrid.parentElement.appendChild(noResultMessage);
-
-        searchInput.addEventListener('input', function() {
-            const query = searchInput.value.toLowerCase();
-            let hasResult = false;
-
-            for (let i = 0; i < cards.length; i++) {
-                const card = cards[i];
-                const nama = card.getAttribute('data-nama').toLowerCase();
-                const lokasi = card.getAttribute('data-lokasi').toLowerCase();
-
-                // Tampilkan atau sembunyikan card berdasarkan pencarian
-                if (nama.includes(query) || lokasi.includes(query)) {
-                    card.style.display = 'block'; // Tampilkan card
-                    hasResult = true;
-                } else {
-                    card.style.display = 'none'; // Sembunyikan card
-                }
-            }
-
-            // Tampilkan atau sembunyikan pesan "Kos tidak ditemukan"
-            if (hasResult) {
-                noResultMessage.style.display = 'none';
-            } else {
-                noResultMessage.style.display = 'block';
-            }
-        });
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 </body>
 

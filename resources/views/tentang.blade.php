@@ -62,30 +62,8 @@
                             </li>
                         </ul>
                         <div class="py-2">
-                            <a href="#"
+                            <a href="/"
                                 class="block px-4 py-2 font-poppins text-sm text-gray-700 hover:bg-gray-100">Keluar</a>
-                        </div>
-                    </div>
-
-                    <div id="dropdownUser"
-                        class="z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 absolute right-0 mt-2">
-                        <div class="px-4 py-3 text-sm text-gray-900">
-                            <div>{{ Auth::user()->name }}</div>
-                            <div class="font-medium truncate">{{ Auth::user()->email }}</div>
-                        </div>
-                        <ul class="py-2 text-sm text-gray-700">
-                            <li>
-                                <a href="/dashboard" class="block px-4 py-2 hover:bg-gray-100">Dashboard</a>
-                            </li>
-                        </ul>
-                        <div class="py-2">
-                            <form method="POST" action="/">
-                                @csrf
-                                <button type="submit"
-                                    class="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
-                                    Keluar
-                                </button>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -97,7 +75,6 @@
                     <i class="ri-arrow-right-line text-base font-sora"></i>
                 </a>
             @endauth
-        </div>
         </div>
     </nav>
 
@@ -113,7 +90,8 @@
             <div class="text-left mt-8 space-y-4">
                 <div>
                     <h2 class="text-xl font-semibold text-gray-800 fons-sora">Visi Kami</h2>
-                    <p class="text-gray-600 mb-4 text-justify font-poppins">Menjadi platform reservasi kos terbaik yang menghubungkan pemilik kos dan
+                    <p class="text-gray-600 mb-4 text-justify font-poppins">Menjadi platform reservasi kos terbaik yang
+                        menghubungkan pemilik kos dan
                         penyewa dengan mudah, transparan, dan aman.</p>
                 </div>
 
@@ -128,45 +106,11 @@
                 </div>
             </div>
 
-            <!-- Ikon Sosial -->
-            <div class="flex justify-center mt-10 gap-6">
-                <a href="https://www.instagram.com/derywhy_" target="_blank" title="Instagram"
-                    class="text-gray-600 hover:text-pink-500 text-2xl" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://wa.me/qr/J2R34HWBWC4LN1" target="_blank" title="WhatsApp"
-                    class="text-gray-600 hover:text-green-500 text-2xl" aria-label="WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="https://github.com/DeryWahyu" target="_blank" title="GitHub"
-                    class="text-gray-600 hover:text-black text-2xl" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://linkedin.com/in/derywahyuperdana" target="_blank" title="LinkedIn"
-                    class="text-gray-600 hover:text-blue-600 text-2xl" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </div>
         </div>
     </section>
 
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
-    <script>
-        // Dropdown functionality
-        const dropdownToggle = document.querySelector('.dropdown-toggle');
-        const dropdownMenu = document.querySelector('.dropdown-menu');
-
-        dropdownToggle.addEventListener('click', () => {
-            dropdownMenu.classList.toggle('show');
-        });
-
-        window.addEventListener('click', (e) => {
-            if (!e.target.matches('.dropdown-toggle')) {
-                dropdownMenu.classList.remove('show');
-            }
-        });
-    </script>
 </body>
 
 </html>

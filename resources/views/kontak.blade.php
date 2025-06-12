@@ -62,30 +62,8 @@
                             </li>
                         </ul>
                         <div class="py-2">
-                            <a href="#"
+                            <a href="/"
                                 class="block px-4 py-2 font-poppins text-sm text-gray-700 hover:bg-gray-100">Keluar</a>
-                        </div>
-                    </div>
-
-                    <div id="dropdownUser"
-                        class="z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 absolute right-0 mt-2">
-                        <div class="px-4 py-3 text-sm text-gray-900">
-                            <div>{{ Auth::user()->name }}</div>
-                            <div class="font-medium truncate">{{ Auth::user()->email }}</div>
-                        </div>
-                        <ul class="py-2 text-sm text-gray-700">
-                            <li>
-                                <a href="/dashboard" class="block px-4 py-2 hover:bg-gray-100">Dashboard</a>
-                            </li>
-                        </ul>
-                        <div class="py-2">
-                            <form method="POST" action="/">
-                                @csrf
-                                <button type="submit"
-                                    class="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
-                                    Keluar
-                                </button>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -97,7 +75,6 @@
                     <i class="ri-arrow-right-line text-base font-sora"></i>
                 </a>
             @endauth
-        </div>
         </div>
     </nav>
 
@@ -172,20 +149,6 @@
             });
         </script>
     @endif
-    <script>
-        const dropdownToggle = document.querySelector('.dropdown-toggle');
-        const dropdownMenu = document.querySelector('.dropdown-menu');
-
-        dropdownToggle.addEventListener('click', () => {
-            dropdownMenu.classList.toggle('show');
-        });
-
-        window.addEventListener('click', (e) => {
-            if (!e.target.matches('.dropdown-toggle')) {
-                dropdownMenu.classList.remove('show');
-            }
-        });
-    </script>
 </body>
 
 </html>
