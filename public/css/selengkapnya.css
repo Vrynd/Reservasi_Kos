@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    margin: 0;
+}
+
+button {
+    background-color: #2da84c;
+    border: 0;
+    padding: 10px 40px;
+    border-radius: 15px;
+    color: white;
+    transition: all .3s;
+}
+
+button:hover {
+    cursor: pointer;
+    scale: 1.1;
+}
+
+#navbar {
+    width: 100%;
+    padding: 20px 50px;
+    margin-left: -100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    font-family: sans-serif;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+#navbar h1 {
+    font-size: 34px;
+    font-weight: bold;
+    margin-left: 100px; /* Adjust the value as needed to move the font to the right */
+}
+
+.black-text {
+    color: black;
+}
+
+.green-text {
+    color: #2da84c;
+}
+
+#navbar ul {
+    display: flex;
+    gap: 20px;
+}
+
+#navbar ul li {
+    list-style: none;
+}
+
+#navbar ul li a {
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: 0.15s;
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+
+
+
+#navbar ul li a:hover {
+    background-color: #2da84c;
+    color: white;
+}
+
+header {
+    background-color: #2e7d32; /* Dark Green */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header p {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+/* Facilities Section */
+.facilities {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+}
+
+.facility-item {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 15px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.facility-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.facility-item img {
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.facility-item h2 {
+    font-size: 1.5em;
+    color: #2e7d32;
+    margin: 10px 0;
+}
+
+.facility-item p {
+    font-size: 1em;
+    color: #555;
+}
+
+/* Button Style */
+.cta {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.button {
+    background-color: #2e7d32; /* Dark Green */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.button:hover {
+    background-color: #1b5e20; /* Darker Green */
+    transform: translateY(-3px);
+}
+
+.button:active {
+    background-color: #66bb6a; /* Lighter Green */
+    transform: translateY(0);
+}
+
+/* Footer Style */
+.footer {
+    background-color: #2e7d32;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
